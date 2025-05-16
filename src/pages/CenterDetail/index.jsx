@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 
 export const CenterDetail = () => {
   const [centerData, setCenterData] = useState()
+  const { centerId } = useParams();
+  //console.log(centerId)
 
   useEffect(() => {
     const fetchCenter = async () => {
@@ -11,10 +13,7 @@ export const CenterDetail = () => {
         setCenterData(json.data)
     }
     fetchCenter()
-  }, [centerData])
-
-  const { centerId } = useParams();
-//   console.log(centerId)
+  }, [centerId])
 
   if (!centerData) {
     return <div>pobočka nenalezena</div>
